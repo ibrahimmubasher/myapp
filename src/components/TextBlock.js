@@ -32,16 +32,16 @@ export default function TextBlock(props) {
       <div className="mb-3">
       <label id="exampleFormControlTextarea1" className="form-label"></label>
       <textarea className="form-control" style={{backgroundColor : props.mode === 'light'?'white':'grey' ,color : props.mode === 'light'?'grey':'white'  }} id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleOnChange}></textarea>
-      <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+      <button className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>
       Upper Case
       </button>
-      <button className="btn btn-primary mx-2" onClick={handleloClick}>
+      <button className="btn btn-primary mx-2 my-1" onClick={handleloClick}>
       Lower Case
       </button>
-      <button className="btn btn-primary mx-2" onClick={handleSpaceClick}>
+      <button className="btn btn-primary mx-2 my-1" onClick={handleSpaceClick}>
       Remove Space
       </button>
-            <button className="btn btn-primary mx-2" onClick={handleclearClick}>
+            <button className="btn btn-primary mx-2 my-1" onClick={handleclearClick}>
               clear text
       </button>
       
@@ -49,7 +49,7 @@ export default function TextBlock(props) {
     </div>
     <div className="container mb-5" style={{color:props.mode === 'dark'?'white':'black' }}>
       <h1>your summary is :</h1>
-      <p>{(text.split(" ").length)} words , {text.length} characters</p>
+      <p>{(text.split(" ").filter((element)=>{return element.length!=0}).length)} words , {text.length} characters</p>
       <p>{0.008 * text.split(" ").length} minutes to read</p>
       <h2>
         preview
